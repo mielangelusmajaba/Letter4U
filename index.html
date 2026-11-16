@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#5d4570" />
+  <title>Constellation of Us</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💫</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- soft clouds behind the sky -->
+  <div class="clouds" aria-hidden="true">
+    <div class="cloud c1"></div>
+    <div class="cloud c2"></div>
+    <div class="cloud c3"></div>
+  </div>
+
+  <!-- three.js sky -->
+  <canvas id="sky" aria-label="A starry sky"></canvas>
+
+  <!-- HUD: hearts progress -->
+  <header id="hud" class="hud hidden">
+    <div id="hearts" class="hearts"></div>
+    <p class="hud-label">stars found</p>
+  </header>
+
+  <div id="hub-label" class="hub-label"><span>tap me ✨</span></div>
+  <div id="const-title" class="const-title hidden"></div>
+  <div id="toast" class="toast" role="status"></div>
+  <div id="cta-wrap" class="cta-wrap hidden"><button id="cta" class="btn">Visit the first star ✨</button></div>
+
+  <!-- Start screen -->
+  <section id="start" class="screen">
+    <div class="start-card">
+      <p class="eyebrow">✦ for <span id="her-name"></span> ✦</p>
+      <h1 id="start-title">Constellation of Us</h1>
+      <p id="start-sub" class="start-sub"></p>
+      <button id="begin" class="btn">Begin ✨</button>
+      <button id="restart" class="link-btn hidden">start over</button>
+    </div>
+  </section>
+
+  <!-- Quiz -->
+  <div id="quiz" class="modal hidden">
+    <div class="card quiz-card">
+      <p class="eyebrow">✦ star <span id="quiz-num"></span> ✦</p>
+      <p class="quiz-intro">to wake this constellation, answer me this…</p>
+      <h2 id="quiz-q"></h2>
+      <div id="quiz-options" class="options"></div>
+      <p id="quiz-feedback" class="feedback"></p>
+    </div>
+  </div>
+
+  <!-- Memory card -->
+  <div id="memory" class="modal hidden">
+    <div class="polaroid">
+      <div class="photo">
+        <img id="mem-img" alt="A memory of us" />
+        <div id="mem-fallback" class="fallback hidden">💞</div>
+      </div>
+      <p id="mem-caption" class="caption"></p>
+      <p id="mem-date" class="date"></p>
+    </div>
+    <button id="mem-next" class="btn">Keep stargazing ✨</button>
+  </div>
+
+  <!-- Envelope -->
+  <div id="envelope-wrap" class="envelope-wrap hidden">
+    <p class="env-hint">a letter fell from the stars… tap to open 💌</p>
+    <div id="envelope" class="envelope" role="button" aria-label="Open the letter">
+      <div class="env-back"></div>
+      <div class="env-letter"><span>for you ♡</span></div>
+      <div class="env-front"></div>
+      <div class="env-flap"></div>
+      <div class="env-seal">❤</div>
+    </div>
+  </div>
+
+  <!-- Letter -->
+  <div id="letter" class="letter-overlay hidden">
+    <article class="paper">
+      <h2 id="letter-greeting" class="reveal"></h2>
+      <div id="letter-body"></div>
+      <p id="letter-signoff" class="signoff reveal"></p>
+      <p id="letter-name" class="signname reveal"></p>
+    </article>
+    <button id="replay" class="btn ghost">Replay ↺</button>
+  </div>
+
+  <!-- Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <!-- App -->
+  <script src="js/config.js"></script>
+  <script src="js/sky.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
